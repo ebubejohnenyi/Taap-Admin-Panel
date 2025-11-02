@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+:root {
+  font-family: "Montserrat", Arial, sans-serif;
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
