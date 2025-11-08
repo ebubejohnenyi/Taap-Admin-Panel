@@ -7,7 +7,7 @@ import RevenueCategory from "./revenue_category";
 
 const RevenueBalance: React.FC = () => {
   return (
-    <div className="w-[549px] h-[176] shadow py-5 px-5 rounded-xl">
+    <div className="w-full border-[0.5px] border-[#F5F5F5] p-5 rounded-xl h-fit">
       <div className="flex justify-between">
         <div>
           <p className="text-[#00000080]">Total Revenue</p>
@@ -18,7 +18,7 @@ const RevenueBalance: React.FC = () => {
         </div>
         <Select
           defaultValue="Today"
-          style={{ width: 120 }}
+          style={{ width: "22%" }}
           onChange={() => {}}
           options={[
             { value: "today", label: "Today" },

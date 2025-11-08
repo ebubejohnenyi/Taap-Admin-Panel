@@ -32,18 +32,18 @@ const items: MenuItem[] = [
       height="20"
       viewBox="0 0 24 24"
     >
-      <g fill="none" stroke="currentColor" stroke-width="1" opacity={"50%"}>
+      <g fill="none" stroke="currentColor" strokeWidth="1" opacity={"50%"}>
         <rect
           width="18.5"
           height="18.5"
           x="2.75"
           y="2.75"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           rx="6"
         />
         <path
-          stroke-linecap="round"
-          stroke-width="1.6"
+          strokeLinecap="round"
+          strokeWidth="1.6"
           d="M7.672 16.222v-5.099m4.451 5.099V7.778m4.205 8.444V9.82"
         />
       </g>
@@ -61,9 +61,9 @@ const items: MenuItem[] = [
       <path
         fill="none"
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
         opacity={"50%"}
         d="M8.557 2.75H4.682A1.93 1.93 0 0 0 2.75 4.682v3.875a1.94 1.94 0 0 0 1.932 1.942h3.875a1.94 1.94 0 0 0 1.942-1.942V4.682A1.94 1.94 0 0 0 8.557 2.75m10.761 0h-3.875a1.94 1.94 0 0 0-1.942 1.932v3.875a1.943 1.943 0 0 0 1.942 1.942h3.875a1.94 1.94 0 0 0 1.932-1.942V4.682a1.93 1.93 0 0 0-1.932-1.932m0 10.75h-3.875a1.94 1.94 0 0 0-1.942 1.933v3.875a1.94 1.94 0 0 0 1.942 1.942h3.875a1.94 1.94 0 0 0 1.932-1.942v-3.875a1.93 1.93 0 0 0-1.932-1.932M8.557 13.5H4.682a1.943 1.943 0 0 0-1.932 1.943v3.875a1.93 1.93 0 0 0 1.932 1.932h3.875a1.94 1.94 0 0 0 1.942-1.932v-3.875a1.94 1.94 0 0 0-1.942-1.942"
       />
@@ -164,9 +164,9 @@ const items: MenuItem[] = [
         fill="none"
         stroke="currentColor"
         opacity={"50%"}
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M10 6H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-3m-4-7a3 3 0 1 0 6 0a3 3 0 1 0-6 0"
       />
     </svg>
@@ -176,7 +176,7 @@ const items: MenuItem[] = [
 const bottomItems: MenuItem[] = [
   getItem(
     <span className="text-[#00000080] font-medium">Settings</span>,
-    "logout",
+    "settings",
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -226,6 +226,10 @@ const RootPage: React.FC = () => {
           style={{
             backgroundColor: "#ffffff",
             borderRight: "1px solid #f0f0f0",
+            position: "fixed",
+            left: 0,
+            top: 0,
+            height: "100vh",
           }}
         >
           <img src={Logo} alt="logo" className="h-[100px] object-contain" />
@@ -244,7 +248,7 @@ const RootPage: React.FC = () => {
             />
           </div>
         </Sider>
-        <Layout>
+        <Layout style={{ marginLeft: 200 }}>
           <NavigationHeader />
           <Dashboard />
         </Layout>

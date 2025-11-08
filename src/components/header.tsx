@@ -12,7 +12,7 @@ const NavigationHeader: React.FC = () => {
         justifyContent: "space-between",
       }}
     >
-      <h1>Dashboard</h1>
+      <h1 className="font-bold">Dashboard</h1>
       <div className="flex items-center gap-10">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +28,7 @@ const NavigationHeader: React.FC = () => {
         <div className="flex gap-2 items-center">
           <h1>Admin</h1>
           <div className="rounded-full overflow-hidden bg-amber-300 h-9 w-9">
-            <img src="" alt="image" />
+            {/* <img src="" alt="image" /> */}
           </div>
         </div>
       </div>

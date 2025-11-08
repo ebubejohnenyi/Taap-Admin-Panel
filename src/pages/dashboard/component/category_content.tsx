@@ -8,7 +8,7 @@ type props = {
 };
 const CategoryContent: React.FC<props> = ({ onChange, label, price }) => {
   return (
-    <div className="grid grid-cols-3 gap-24">
+    <div className="flex justify-between items-center">
       <p className="font-bold">{label}</p>
       <p className="font-bold">₦{price}</p>
       <span>
