@@ -31,3 +31,9 @@
 .custom-table .ant-table-tbody > tr > td {
   border: none !important;
 }
+
+.ant-tabs-ink-bar {
+  height: 4px !important;
+  background-color: #1677ff !important;
+  border-radius: 4px;
+}

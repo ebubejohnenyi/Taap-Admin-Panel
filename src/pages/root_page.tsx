@@ -1,8 +1,8 @@
 import type { MenuProps } from "antd";
-import { Badge, ConfigProvider, Layout, Menu, theme } from "antd";
+import { Badge, ConfigProvider, Layout, Menu } from "antd";
 import Logo from "../assets/png/taap logo.png";
 import NavigationHeader from "../components/header";
-import Dashboard from "./dashboard/dashboard";
+import { NavLink, Outlet } from "react-router-dom";
 
 const { Sider } = Layout;
 
@@ -24,7 +24,7 @@ function getItem(
 
 const items: MenuItem[] = [
   getItem(
-    <span className="text-[#00000080]">Dashboard</span>,
+    <NavLink to="/">Dashboard</NavLink>,
     "dashboard",
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -69,10 +69,19 @@ const items: MenuItem[] = [
       />
     </svg>,
     [
-      getItem("Pre Order", "pre-order"),
-      getItem("Validation", "validation"),
-      getItem("Cancelled", "cancelled"),
-      getItem("Completed", "completed"),
+      getItem(<NavLink to={"order/pre-order"}>Pre Order</NavLink>, "pre-order"),
+      getItem(
+        <NavLink to={"order/validated-order"}>Validation</NavLink>,
+        "validation"
+      ),
+      getItem(
+        <NavLink to={"order/cancelled-order"}>Cancelled</NavLink>,
+        "cancelled"
+      ),
+      getItem(
+        <NavLink to={"order/completed-order"}>Completed</NavLink>,
+        "completed"
+      ),
     ]
   ),
   getItem(
@@ -250,7 +259,7 @@ const RootPage: React.FC = () => {
         </Sider>
         <Layout style={{ marginLeft: 200 }}>
           <NavigationHeader />
-          <Dashboard />
+          <Outlet />
         </Layout>
       </Layout>
     </ConfigProvider>
