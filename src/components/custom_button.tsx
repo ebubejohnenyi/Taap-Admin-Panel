@@ -1,19 +1,22 @@
-type props = {
+interface CustombuttonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   title: string;
   titleColor?: string;
   icon?: any;
   variant?: string;
   isLoading?: boolean;
-};
-const CustomButton: React.FC<props> = ({
+}
+const CustomButton: React.FC<CustombuttonProps> = ({
   icon,
   title,
   titleColor,
   variant,
   isLoading,
+  ...rest
 }) => {
   return (
     <button
+      {...rest}
       style={{
         color: titleColor ?? "black",
         backgroundColor:
@@ -25,7 +28,7 @@ const CustomButton: React.FC<props> = ({
             ? "#C11000"
             : "#000000",
       }}
-      className={`py-1 px-3 rounded-sm cursor-pointer ${
+      className={`py-2 w-full flex justify-center text-nowrap items-center px-3 rounded-sm cursor-pointer ${
         icon !== null ? "flex" : "block"
       } items-center ${icon != undefined ? "gap-2" : "gap-0"}`}
     >

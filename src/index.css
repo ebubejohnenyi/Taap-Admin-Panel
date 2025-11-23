@@ -1,13 +1,58 @@
 @import "tailwindcss";
 
 :root {
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: "Lato", sans-serif;
   color-scheme: light dark;
+
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-size: 14px; 
+  font-weight: normal; 
+}
+.small-text{
+  font-size: 14px;
+}
+.ant-menu-item a.active-tab {
+  color: #00000080 !important;
+}
+
+.ant-menu-item-selected {
+  background-color: #F5F5F5 !important;
+}
+
+/* When parent submenu is selected/open because a child is active */
+.ant-menu-submenu-selected > .ant-menu-submenu-title svg,
+.ant-menu-submenu-open > .ant-menu-submenu-title svg {
+  color: #00000080 !important;
+  stroke: #00000080 !important;
+}
+
+/* Fix the arrow icon specifically */
+.ant-menu-submenu-selected .ant-menu-submenu-arrow,
+.ant-menu-submenu-open .ant-menu-submenu-arrow {
+  color: #00000080 !important;
+  stroke: #00000080 !important;
+}
+
+.active-tab .menu-text {
+  color: #00000080; 
+}
+
+.inactive-tab .menu-text {
+  color: #00000080; 
+}
+
+.inactive-tab{
+  background-color: transparent;
+}
+
+.ant-menu-item a.inactive-tab{
+  color: #00000080 !important;
 }
 
 .title-content {
@@ -15,11 +60,12 @@
   font-size: 14px;
   font-weight: 500;
 }
+
 .custom-table .ant-table-thead > tr > th {
   background-color: #ffffff !important;
   color: rgba(0, 0, 0, 0.3) !important;
   font-weight: 500;
-  font-size: 10px;
+  font-size: 12px;
   border: none;
   padding-bottom: 0;
 }
@@ -36,4 +82,12 @@
   height: 4px !important;
   background-color: #1677ff !important;
   border-radius: 4px;
+}
+
+.custom-modal .ant-modal-header {
+  @apply text-white;
+}
+
+.custom-modal .ant-modal-title {
+  @apply font-semibold text-red-700;
 }

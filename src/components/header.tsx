@@ -1,8 +1,53 @@
 import { Layout } from "antd";
+import PersonAvatar from "./person_avatar";
+import { useLocation } from "react-router-dom";
 
 const { Header } = Layout;
 
 const NavigationHeader: React.FC = () => {
+  const Order = "/order";
+  const PreOrder = "/order/pre-order";
+  const ValidatedOrder = "/order/validated-order";
+  const CancelledOrder = "/order/cancelled-order";
+  const CompletedOrder = "/order/completed-order";
+  const Wallet = "/wallet";
+  const Attendant = "/attendant";
+  const Inventory = "/inventory";
+  const Notification = "/notification";
+  const AttendantDetails = "/attendant-detail";
+  const Reconciliation = "/reconciliation";
+  const Setting = "/setting";
+
+  const location = useLocation();
+  let title = "Dashboard";
+  let subTitle = "";
+
+  if (location.pathname === Order) {
+    title = "Order";
+  } else if (location.pathname === PreOrder) {
+    title = "Pre-Order";
+  } else if (location.pathname === ValidatedOrder) {
+    title = "Validated Order";
+  } else if (location.pathname === CancelledOrder) {
+    title = "Cancelled Order";
+  } else if (location.pathname === CompletedOrder) {
+    title = "Completed Order";
+  } else if (location.pathname === Wallet) {
+    title = "Wallet";
+  } else if (location.pathname === Attendant) {
+    title = "Attendant";
+  } else if (location.pathname === Inventory) {
+    title = "Inventory";
+  } else if (location.pathname === Notification) {
+    title = "Notification";
+  } else if (location.pathname === AttendantDetails) {
+    title = "Attendant Details";
+  } else if (location.pathname === Reconciliation) {
+    title = "Reconciliation";
+  } else if (location.pathname === Setting) {
+    title = "Setting";
+  }
+
   return (
     <Header
       style={{
@@ -12,7 +57,28 @@ const NavigationHeader: React.FC = () => {
         justifyContent: "space-between",
       }}
     >
-      <h1 className="font-bold">Dashboard</h1>
+      <div className="flex items-center gap-2.5">
+        <h1 className="font-bold">{title}</h1>
+        {subTitle !== "" && (
+          <>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="size-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m8.25 4.5 7.5 7.5-7.5 7.5"
+              />
+            </svg>
+            <h1 className="font-bold">{subTitle}</h1>
+          </>
+        )}
+      </div>
       <div className="flex items-center gap-10">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -27,9 +93,7 @@ const NavigationHeader: React.FC = () => {
         </svg>
         <div className="flex gap-2 items-center">
           <h1>Admin</h1>
-          <div className="rounded-full overflow-hidden bg-amber-300 h-9 w-9">
-            {/* <img src="" alt="image" /> */}
-          </div>
+          <PersonAvatar img={""} className="object-contain w-7 h-7" />
         </div>
       </div>
     </Header>

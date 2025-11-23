@@ -2,7 +2,7 @@ import type { MenuProps } from "antd";
 import { Badge, ConfigProvider, Layout, Menu } from "antd";
 import Logo from "../assets/png/taap logo.png";
 import NavigationHeader from "../components/header";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 const { Sider } = Layout;
 
@@ -24,7 +24,13 @@ function getItem(
 
 const items: MenuItem[] = [
   getItem(
-    <NavLink to="/">Dashboard</NavLink>,
+    <NavLink
+      to="/"
+      end
+      className={({ isActive }) => (isActive ? "active-tab" : "inactive-tab")}
+    >
+      <span className="menu-text">Dashboard</span>
+    </NavLink>,
     "dashboard",
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +56,33 @@ const items: MenuItem[] = [
     </svg>
   ),
   getItem(
-    <span className="text-[#00000080]">Order</span>,
+    <NavLink
+      to="/reconciliation"
+      className={({ isActive }) => (isActive ? "active-tab" : "inactive-tab")}
+    >
+      <span className="menu-text">Reconciliation</span>
+    </NavLink>,
+    "reconciliation",
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      opacity={"50%"}
+    >
+      <path
+        fill="currentColor"
+        d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92c0 .9-.18 1.75-.5 2.54l2.62 1.53c.56-1.24.88-2.62.88-4.07c0-5.18-3.95-9.45-9-9.95M12 19a7 7 0 0 1-7-7c0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95a10 10 0 0 0 10 10c3.3 0 6.23-1.61 8.05-4.09l-2.6-1.53A6.89 6.89 0 0 1 12 19"
+      />
+    </svg>
+  ),
+  getItem(
+    <NavLink
+      to={"order"}
+      className={({ isActive }) => (isActive ? "active-tab" : "inactive-tab")}
+    >
+      Order
+    </NavLink>,
     "order",
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -67,25 +99,15 @@ const items: MenuItem[] = [
         opacity={"50%"}
         d="M8.557 2.75H4.682A1.93 1.93 0 0 0 2.75 4.682v3.875a1.94 1.94 0 0 0 1.932 1.942h3.875a1.94 1.94 0 0 0 1.942-1.942V4.682A1.94 1.94 0 0 0 8.557 2.75m10.761 0h-3.875a1.94 1.94 0 0 0-1.942 1.932v3.875a1.943 1.943 0 0 0 1.942 1.942h3.875a1.94 1.94 0 0 0 1.932-1.942V4.682a1.93 1.93 0 0 0-1.932-1.932m0 10.75h-3.875a1.94 1.94 0 0 0-1.942 1.933v3.875a1.94 1.94 0 0 0 1.942 1.942h3.875a1.94 1.94 0 0 0 1.932-1.942v-3.875a1.93 1.93 0 0 0-1.932-1.932M8.557 13.5H4.682a1.943 1.943 0 0 0-1.932 1.943v3.875a1.93 1.93 0 0 0 1.932 1.932h3.875a1.94 1.94 0 0 0 1.942-1.932v-3.875a1.94 1.94 0 0 0-1.942-1.942"
       />
-    </svg>,
-    [
-      getItem(<NavLink to={"order/pre-order"}>Pre Order</NavLink>, "pre-order"),
-      getItem(
-        <NavLink to={"order/validated-order"}>Validation</NavLink>,
-        "validation"
-      ),
-      getItem(
-        <NavLink to={"order/cancelled-order"}>Cancelled</NavLink>,
-        "cancelled"
-      ),
-      getItem(
-        <NavLink to={"order/completed-order"}>Completed</NavLink>,
-        "completed"
-      ),
-    ]
+    </svg>
   ),
   getItem(
-    <span className="text-[#00000080]">Wallet</span>,
+    <NavLink
+      to={"/wallet"}
+      className={({ isActive }) => (isActive ? "active-tab" : "inactive-tab")}
+    >
+      <span className="menu-text">Wallet</span>
+    </NavLink>,
     "wallet",
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +126,12 @@ const items: MenuItem[] = [
     </svg>
   ),
   getItem(
-    <span className="text-[#00000080]">Attendant</span>,
+    <NavLink
+      to={"/attendant"}
+      className={({ isActive }) => (isActive ? "active-tab" : "inactive-tab")}
+    >
+      <span className="menu-text">Attendant</span>
+    </NavLink>,
     "attendant",
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +152,12 @@ const items: MenuItem[] = [
     </svg>
   ),
   getItem(
-    <span className="text-[#00000080]">Inventory</span>,
+    <NavLink
+      to={"/inventory"}
+      className={({ isActive }) => (isActive ? "active-tab" : "inactive-tab")}
+    >
+      <span className="menu-text">Inventory</span>
+    </NavLink>,
     "inventory",
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -149,7 +181,12 @@ const items: MenuItem[] = [
         width: "100%",
       }}
     >
-      <span className="text-[#00000080]">Notification</span>
+      <NavLink
+        to={"/notification"}
+        className={({ isActive }) => (isActive ? "active-tab" : "inactive-tab")}
+      >
+        <span className="menu-text">Notification</span>
+      </NavLink>
       <Badge
         count={5}
         size="small"
@@ -184,8 +221,13 @@ const items: MenuItem[] = [
 
 const bottomItems: MenuItem[] = [
   getItem(
-    <span className="text-[#00000080] font-medium">Settings</span>,
-    "settings",
+    <NavLink
+      to={"/setting"}
+      className={({ isActive }) => (isActive ? "active-tab" : "inactive-tab")}
+    >
+      <span className="menu-text">Settings</span>
+    </NavLink>,
+    "setting",
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -217,6 +259,10 @@ const bottomItems: MenuItem[] = [
 ];
 
 const RootPage: React.FC = () => {
+  const location = useLocation();
+
+  const selectedKey = location.pathname.split("/").pop() || "dashboard";
+
   return (
     <ConfigProvider
       theme={{
@@ -241,18 +287,23 @@ const RootPage: React.FC = () => {
             height: "100vh",
           }}
         >
-          <img src={Logo} alt="logo" className="h-[100px] object-contain" />
+          <img
+            src={Logo}
+            alt="logo"
+            className="h-[100px] w-[100px] ml-7 object-cover"
+          />
           <div className="lg:h-10/12 sm:h-10/12 xl:10/12 flex flex-col justify-between">
             <Menu
               theme="light"
-              defaultSelectedKeys={["dashboard"]}
+              selectedKeys={[selectedKey]}
               mode="inline"
               items={items}
             />
             <Menu
               theme="light"
               mode="inline"
-              selectable={false}
+              selectable={true}
+              selectedKeys={[selectedKey]}
               items={bottomItems}
             />
           </div>

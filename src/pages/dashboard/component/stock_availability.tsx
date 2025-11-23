@@ -1,5 +1,5 @@
 import CustomButton from "../../../components/custom_button";
-import CategoryContent from "./category_content";
+import CategoryContent from "../../setting/component/category_content";
 
 const StockAvailability: React.FC = () => {
   return (
